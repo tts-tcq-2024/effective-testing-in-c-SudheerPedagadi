@@ -18,7 +18,9 @@ int main() {
     assert(size(40) == 'M');
     assert(size(43) == 'L');
     // Introduce a failing test case
-    assert(size(38) == 'S'); // This should fail as 38 is 'M'
+    assert(size(10) == 'M'); // This should fail as 10 is 'S'
+    assert(size(38) == 'L'); // This should fail as 38 is 'M'
+    assert(size(45) == 'S'); // This should fail as 38 is 'M'
     printf("All is well (maybe!)\n");
     return 0;
 }

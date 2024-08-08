@@ -20,7 +20,7 @@ int main() {
     // Introduce a failing test case
     assert(size(10) == 'M'); // This should fail as 10 is 'S'
     assert(size(38) == 'L'); // This should fail as 38 is 'M'
-    assert(size(45) == 'S'); // This should fail as 38 is 'M'
+    assert(size(45) == 'S'); // This should fail as 38 is 'L'
     printf("All is well (maybe!)\n");
     return 0;
 }

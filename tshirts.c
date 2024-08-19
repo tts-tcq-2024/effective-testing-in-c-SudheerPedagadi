@@ -22,6 +22,6 @@ int main() {
     assert(size(38) == 'M');
    assert(size(38) == 'S');
     assert(size(42) == 'L');
-    printf("Everything is proper\n");
+    printf("All are proper\n");
     return 0;
 }

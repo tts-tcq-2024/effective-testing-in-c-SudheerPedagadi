@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <assert.h>
+#include <string.h>
 
 int printColorMap() {
     const char* majorColor[] = {"White", "Red", "Black", "Yellow", "Violet"};
@@ -57,7 +58,6 @@ void testColorPairs() {
         line = strtok(NULL, "\n");
     }
 }
-
 int main() {
     int result = printColorMap();
     testColorPairs();

@@ -5,12 +5,11 @@ int alertFailureCount = 0;
 
 int networkAlertStub(float celcius) {
     printf("ALERT: Temperature is %.1f celcius.\n", celcius);
-    // Return 200 for ok
-    // Return 500 for not-ok
-    // stub always succeeds and returns 200
+    if (celcius > 250) {
+        return 500;
+    }
     return 200;
 }
-
 void alertInCelcius(float farenheit) {
     float celcius = (farenheit - 32) * 5 / 9;
     int returnCode = networkAlertStub(celcius);
@@ -22,10 +21,23 @@ void alertInCelcius(float farenheit) {
         alertFailureCount += 0;
     }
 }
+void testAlertFailureCount() {
+    // Reset alertFailureCount to 0 before running tests
+    alertFailureCount = 0;
+    alertInCelcius(200); 
+    printf("AlertFailureCount = %d\n", alertFailureCount);
+    assert(alertFailureCount == 0);  
+    alertInCelcius(300); 
+    printf("AlertFailureCount = %d\n", alertFailureCount);
+    assert(alertFailureCount == 1);  
+    alertInCelcius(150);   
+    printf("AlertFailureCount = %d\n", alertFailureCount);
+    assert(alertFailureCount == 1);  
+    printf("All tests are passed successfully!\n");
+}
 
-int main() {
-    alertInCelcius(400.5);
-    alertInCelcius(303.6);
+int main() {    
+    testAlertFailureCount();
     printf("%d alerts failed.\n", alertFailureCount);
     printf("All is well (maybe!)\n");
     return 0;
